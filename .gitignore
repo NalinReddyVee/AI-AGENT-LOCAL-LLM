@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+
+# Virtual Environment
+venv/
+.env/
+.venv/
+env/
+*.env
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build/Dist
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# IDE
+.idea/
+*.iml
+
+# MacOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+*.sock
+docker-compose.override.yml
+
+# Misc
+*.bak
+*.tmp
+*.swp
+
+chroma_storage/
+docs/

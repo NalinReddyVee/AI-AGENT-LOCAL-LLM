@@ -1,0 +1,55 @@
+1. Start your FastAPI server
+From your project directory, activate the virtual environment and run:
+
+source .venv/bin/activate
+uvicorn main:app --reload
+You should see:
+
+Uvicorn running on http://127.0.0.1:8000
+✅ 2. Open Swagger UI
+Go to this URL in your browser:
+http://localhost:8000/docs
+
+This is FastAPI’s interactive UI to test endpoints.
+
+✅ 3. Upload a File
+Use the /upload/ endpoint:
+
+Click POST /upload/
+
+Click "Try it out"
+
+Click "Choose File" and select a .pdf or .docx
+
+Click "Execute"
+
+If successful, you'll see a response like:
+
+json
+Copy
+Edit
+{
+  "filename": "example.docx",
+  "chunks_added": 3
+}
+That means chunks of text from the file were saved to ChromaDB.
+
+✅ 4. Run a Query
+Use the /query/ endpoint:
+
+Click POST /query/
+
+Click "Try it out"
+
+In the query field, enter a question relevant to the uploaded file (e.g., "What is OpenAI building?")
+
+Click "Execute"
+
+You should get a response like:
+
+
+{
+  "query": "What is OpenAI building?",
+  "matched_doc": "OpenAI is building AGI to benefit humanity.",
+  "doc_id": "example.docx"
+}
