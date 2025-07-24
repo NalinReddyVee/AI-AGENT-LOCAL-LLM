@@ -4,6 +4,60 @@
 This project is a **FastAPI-based chatbot** that uses a **Local LLM (Ollama with LLaMA3)** for streaming responses, integrated with **vector-based retrieval (RAG)** and **function calling capabilities**.  
 The frontend is built with **vanilla HTML, CSS, and JavaScript**, providing a simple yet interactive UI to ask questions and receive real-time responses.
 
++----------------------+
+| 1. User (Chat UI)    |
+|----------------------|
+| Inputs question via  |
+| HTML form (JS fetch) |
++----------+-----------+
+            
++---------------------------+
+| 2. FastAPI `/query/` API |
+|---------------------------|
+| - Receives user query    |
+| - Uses collection name   |
++-----------+--------------+
+
++---------------------------+
+| 3. ChromaDB Vector Store |
+|---------------------------|
+| - Embeds user query      |
+| - Retrieves top-N docs   |
+|   using similarity search|
++-----------+--------------+
+
++---------------------------+
+| 4. Prompt Builder         |
+|---------------------------|
+| - Combines user query +  |
+|   top documents into a   |
+|   prompt for LLM         |
++-----------+--------------+
+
++---------------------------+
+| 5. Ollama Local API       |
+|  (e.g., model: phi)       |
+|---------------------------|
+| - Receives prompt         |
+| - Generates natural       |
+|   language answer         |
++-----------+--------------+
+
++---------------------------+
+| 6. FastAPI Response       |
+|---------------------------|
+| - Sends back JSON:        |
+|   {query, answer, docs}   |
++-----------+--------------+
+
++--------------------------+
+| 7. Frontend UI (JS)     |
+|--------------------------|
+| - Displays chatbot reply |
+| - Optionally shows docs  |
++--------------------------+
+
+
 ---
 
 ## Features
